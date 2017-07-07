@@ -115,20 +115,16 @@ var todo = new Vue({
   },
   computed:{
     counter : function(){
-      console.log("count : +"+ParseInt(this.count)+1);
       return this.count+1;
     }
   },
   methods: {
     clickBtn() {
       var testObject = { 'one': 1, 'two': 2, 'three': 3 };
-      console.log("hi"+todo.message+"count: "+this.count);
       this.count=parseInt(this.count)+1;
-      console.log(this.count);
       result_array.push(todo.message);
       localStorage.setItem("count",this.count)
       var newList={'text':todo.message,'index':this.count}
-      console.log("length : "+localStorage.length)
       localStorage.setItem(this.count,todo.message);
 // // Access some stored data
 // console.log( "username = " + localStorage.getItem("list"));
@@ -138,16 +134,12 @@ var todo = new Vue({
 
     },
     deleteBtn(ss){
-      alert(ss+localStorage.length);
 
       for(var i=1; i<10; i++){
-        console.log("i : "+i+"delete : "+localStorage.getItem(i)+"ss : "+ss)
         if(localStorage.getItem(i)==ss){
-          console.log(i+"을 지운다"+"지우기 전 : "+result_array)
           localStorage.removeItem(i);
           for(var j=0; j<result_array.length; j++){
             if(result_array[j]==ss){
-              alert("j:"+j);
               var deleteCount=localStorage.getItem("count");
               var resultCount=(parseInt(deleteCount)-1);
               localStorage.setItem("count",resultCount);
