@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue Nested Router Sample</title>
   </head>
+  <style>
+  .fade-enter-active, .fade-leave-active {
+transition: opacity .5s
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+opacity: 0
+}
+  </style>
   <body>
     <div id="app">
       <h1>Hello Vue Nested Router!</h1>
@@ -28,7 +36,10 @@
       <p>{{test}}</p>
       <ul>
         <template v-for="item in shown">
-          <li>{{item}}</li>
+          <transition name="fade">
+
+          <li><p>{{item}}</p>  <button v-on:click="deleteBtn(item);"> 삭제</button></li>
+        </transition>
         </template>
       </ul>
 

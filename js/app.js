@@ -136,6 +136,26 @@ var todo = new Vue({
 // console.log(result);
 // console.log(result.text);
 
+    },
+    deleteBtn(ss){
+      alert(ss+localStorage.length);
+
+      for(var i=1; i<10; i++){
+        console.log("i : "+i+"delete : "+localStorage.getItem(i)+"ss : "+ss)
+        if(localStorage.getItem(i)==ss){
+          console.log(i+"을 지운다"+"지우기 전 : "+result_array)
+          localStorage.removeItem(i);
+          for(var j=0; j<result_array.length; j++){
+            if(result_array[j]==ss){
+              alert("j:"+j);
+              var deleteCount=localStorage.getItem("count");
+              var resultCount=(parseInt(deleteCount)-1);
+              localStorage.setItem("count",resultCount);
+              result_array.splice(j,1);
+            }
+          }
+        }
+      }
     }
     // 할일 #1
     // eventMethod 를 하나 추가하고 template 에서 해당 이벤트를 실행할 수 있는 button 을 하나 추가하세요.
