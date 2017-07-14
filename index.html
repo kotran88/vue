@@ -7,46 +7,18 @@
   </head>
   <style>
   .fade-enter-active, .fade-leave-active {
-transition: opacity .5s
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
-opacity: 0
-}
+  transition: opacity .5s
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+  opacity: 0
+  }
   </style>
   <body>
-    <div id="app">
-      <h1>Hello Vue Nested Router!</h1>
-      <p>
-        <router-link to="/login">Go to Login</router-link>
-        <router-link to="/list">Go to List</router-link>
-        <router-link to="/">Main</router-link>
-
-        <!-- 할일 #3 -->
-        <!-- `/main` 에 반응할 Nested Router 를 아래에 추가하세요 -->
-
-      </p>
-      <router-view></router-view>
-    </div>
-
     <div id="todo">
-      <input type="text" v-model="message" placeholder="input me" name="input_todo"><button v-on:click="clickBtn(count);">전송</button>
-      <span>{{message}}</span>
-      <p v-bind:id="uid">{{uid}}</p>
-      <span>count : {{count}}</span>
-      <p>{{test}}</p>
-      <ul>
-        <template v-for="item in shown">
-          <transition name="fade">
-
-          <li><p>{{item}}</p>  <button v-on:click="deleteBtn(item);"> 삭제</button></li>
-        </transition>
-        </template>
-      </ul>
-
+      
     </div>
 
     <script src="js/vendor/vue.js"></script>
-    <script src="js/vendor/vue-router.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
